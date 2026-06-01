@@ -84,7 +84,7 @@ document.addEventListener('click', (event) => {
         const vesselImg = document.getElementById('vessle');
         if (vesselImg) vesselImg.src = "svg/inv/Sec 1/MVD/vessle/Ve1.svg";
 
-['monomon', 'lurien', 'herrah'].forEach(id => {
+        ['monomon', 'lurien', 'herrah'].forEach(id => {
             const d = document.getElementById(id);
             if (d) {
                 d.setAttribute('data-dreamer-active', 'false');
@@ -97,6 +97,7 @@ document.addEventListener('click', (event) => {
         if (eyes) eyes.classList.remove('suspicious');
 
         if (typeof playClear === 'function') playClear();
+        if (typeof borrarSave === 'function') borrarSave();
         if (typeof actualizarPorcentaje === 'function') actualizarPorcentaje();
         return;
     }
@@ -158,6 +159,7 @@ document.addEventListener('click', (event) => {
             item.classList.remove('disabled');
             if (typeof marcarPrimerPasoGodTuner === 'function') marcarPrimerPasoGodTuner(true);
             if (typeof playGodActivate === 'function') playGodActivate();
+            if (typeof dispararBurstGodTuner === 'function') dispararBurstGodTuner();
         } else if (typeof ejecutarAccionGodTuner === 'function') {
             ejecutarAccionGodTuner();
         }
