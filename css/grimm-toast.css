@@ -1,0 +1,78 @@
+/* ==========================================================================
+   GRIMM TOAST — Notificación de advertencia de Carefree Melody
+   ========================================================================== */
+
+#grimm-toast {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    z-index: 999;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 320px;
+    padding: 14px 18px;
+
+    /* Glass panel congruente con el resto de la UI */
+    background: linear-gradient(
+        135deg,
+        rgba(92, 77, 38, 0.55) 0%,
+        rgba(30, 24, 10, 0.75) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid #D4AF37;
+    border-radius: 6px;
+    box-shadow:
+        0 0 12px rgba(139, 115, 35, 0.45),
+        0 0 30px rgba(92, 77, 38, 0.25),
+        inset 0 0 8px rgba(212, 175, 55, 0.08);
+
+    /* Oculto por defecto */
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#grimm-toast.grimm-toast-show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#grimm-toast.grimm-toast-hide {
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+}
+
+.grimm-toast-icon {
+    font-size: 1.1rem;
+    color: #D4AF37;
+    text-shadow: 0 0 8px rgba(139, 115, 35, 0.8);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.grimm-toast-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: #E6D380;
+    text-shadow: 0 1px 4px rgba(92, 77, 38, 0.9);
+    letter-spacing: 0.4px;
+}
+
+.grimm-toast-text strong {
+    color: #D4AF37;
+    font-weight: 700;
+}
+
+.grimm-toast-text em {
+    color: #F0E4A0;
+    font-style: normal;
+    font-weight: 600;
+}

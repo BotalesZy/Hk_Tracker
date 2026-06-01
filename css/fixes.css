@@ -1,0 +1,33 @@
+/* ==========================================================================
+   FIXES — Magias con feel de botón + NKG bloqueado
+   ========================================================================== */
+
+/* ── Magias: hover y press igual que los coliseos ── */
+.interactive-spell:not(.disabled):hover {
+    filter: brightness(1.25);
+    transform: scale(1.05);
+}
+
+.interactive-spell:not(.disabled):active {
+    transform: scale(0.93);
+    filter: brightness(1.4);
+    transition: transform 0.07s ease, filter 0.07s ease;
+}
+
+/* El mismo :active para todos los interactive-item por consistencia */
+.interactive-item:not(.disabled):active {
+    transform: scale(0.93);
+    filter: brightness(1.4);
+    transition: transform 0.07s ease, filter 0.07s ease;
+}
+
+/* ── NKG bloqueado cuando Carefree está activo ── */
+img[alt="NKG"][data-nkg-locked="true"] {
+    cursor: not-allowed !important;
+    filter: brightness(1) drop-shadow(0 0 6px rgba(180, 40, 40, 0.7)) !important;
+}
+
+img[alt="NKG"][data-nkg-locked="true"]:hover {
+    transform: none !important;
+    filter: brightness(1) drop-shadow(0 0 9px rgba(200, 50, 50, 0.9)) !important;
+}
