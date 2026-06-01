@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cssGen.css" />
+    <link rel="stylesheet" href="css/cleanB.css" />
+    <link rel="stylesheet" href="css/glassPanels.css" />
+    <link rel="stylesheet" href="css/glassPaneld.css" />
+    <link rel="stylesheet" href="css/mvGlassP.css" />
+    <link rel="stylesheet" href="css/grimm-toast.css" />
+    <link rel="stylesheet" href="css/fixes.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="scripts/sounds.js"></script>
+    <title>Hollow Knight Tracker</title>
+    <link rel="icon" type="image/x-icon" href="svg/icon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+    </style>
+</head>
+<body>
+
+    <!-- ─── NAVBAR SUPERIOR ─── -->
+    <nav class="nav-bar">
+        <span class="nav-prev-label" id="nav-prev-label">← Charms</span>
+        <span class="nav-title"      id="nav-title">Inventory</span>
+        <span class="nav-next-label" id="nav-next-label">Charms →</span>
+    </nav>
+
+    <div class="main-container">
+        <aside class="side-button left">
+            <img src="svg/izquierda.svg" alt="Prev">
+        </aside>
+
+        <div class="sections-wrapper">
+
+            <!-- ─── PANTALLA BOSSES ─── -->
+            <section class="slot" id="pantalla-bosses">
+                <div class="content-area">
+                    <header><h2>Bosses (Normal)</h2></header>
+                    <div class="slot-box bosses-scroll-container">
+                        <div class="boss-section-group">
+                            <h3 class="boss-section-title">Common Bosses</h3>
+                            <div class="boss-grid-layout">
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Gruz_Mother_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Gruz Mother</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/False_Knight_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">False Knight</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Brooding_Mawlek_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Brooding Mawlek</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Hornet_Protector_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Hornet (Greenpath)</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Hornet_Protector_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Hornet (Cast-off-Shell)</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Mantis_Lords_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Mantis Lords</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Soul_Master_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Soul Master</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Dung_Defender_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Dung Defender</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Nosk_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Nosk</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/The_Collector_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">The Collector</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Watcher_Knight_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Watcher Knight</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Uumuu_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Uumuu</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Broken_Vessel_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Broken Vessel</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Hive_Knight_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Hive Knight</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Traitor_Lord_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Traitor Lord</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Troupe_Master_Grimm_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Grimm</span></div>
+                            </div>
+                        </div>
+                        <div class="boss-section-group">
+                            <h3 class="boss-section-title">Dream Warriors</h3>
+                            <div class="boss-grid-layout">
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Elder_Hu_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Elder Hu</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Galien_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Galien</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Gorb_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Gorb</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Markoth_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Markoth</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Marmu_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Marmu</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/No_Eyes_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">No Eyes</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Xero_Icon.webp" alt="" class="interactive-item disabled"></div><span class="boss-name">Xero</span></div>
+                                <div class="boss-card"><div class="grid-circle-slot"><img src="svg/bosses/Nightmare_King_Icon.webp" alt="NKG" class="interactive-item disabled"></div><span class="boss-name">NKG</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── PANTALLA INVENTARIO ─── -->
+            <section class="slot active-slide" id="pantalla-inventario">
+                <div class="content-area">
+                    <header><h2>Inventory</h2></header>
+                    <div class="main-inventory-layout">
+                        <div class="inv-col-1 inventory-column">
+                            <div id="godtuner-panel"  class="glass-panel-local hidden"></div>
+                            <div id="mask-panel"      class="glass-panel-local hidden shards-vessels-theme"></div>
+                            <div id="vessel-panel"    class="glass-panel-local hidden shards-vessels-theme"></div>
+                            <div id="dreamnail-panel" class="glass-panel-local hidden dreamnail-theme"></div>
+                            <div class="slot-box grid-layout-1">
+                                <div class="sub-box item-1">
+                                    <img src="svg/inv/Sec 1/MVD/mask/mascara1.svg" alt="mask" id="mask">
+                                </div>
+                                <div class="sub-box item-2 item-stacked-vertical">
+                                    <img src="svg/inv/Sec 1/MVD/godT/Godtuner.webp" alt="God Tuner" class="interactive-item god-tuner-small disabled" id="godT">
+                                    <div id="vessle-wrapper">
+                                        <img src="svg/inv/Sec 1/MVD/vessle/Ve1.svg" alt="vessle" class="vessel-small" id="vessle">
+                                    </div>
+                                </div>
+                                <div class="sub-box item-3">
+                                    <img src="svg/inv/Sec 1/MVD/dream/Dream_Nail.webp" alt="dream" class="interactive-item dream-nail-large disabled" id="dreamNail">
+                                </div>
+                                <div class="sub-box item-4">
+                                    <img src="svg/inv/Sec 1/aguijon/N1.webp" alt="nail" id="nail">
+                                </div>
+                                <div class="sub-box item-5 spells-grid-container">
+                                    <img src="svg/inv/Sec 1/magia/Vengeful Spirit.png" alt="Vengeful Spirit" class="interactive-spell disabled" id="spellTopLeft"  data-state="0">
+                                    <img src="svg/inv/Sec 1/magia/Desolate Dive.png"   alt="Desolate Dive"   class="interactive-spell disabled" id="spellTopRight" data-state="0">
+                                    <img src="svg/inv/Sec 1/magia/focus.webp"           alt="Focus"           id="focus">
+                                    <img src="svg/inv/Sec 1/magia/Howling Wraiths.png" alt="Howling Shrieks" class="interactive-spell disabled" id="spellBottom"   data-state="0">
+                                </div>
+                                <div class="sub-box item-6">
+                                    <div class="nail-arts-container">
+                                        <img src="svg/inv/Sec 1/artesA/Cyclone Slash.png" alt="Cyclone Slash" class="interactive-item disabled" id="cyclone">
+                                        <img src="svg/inv/Sec 1/artesA/Dash Slash.png"    alt="Dash Slash"    class="interactive-item disabled" id="dashA">
+                                        <img src="svg/inv/Sec 1/artesA/Great Slash.png"   alt="Great Slash"   class="interactive-item disabled" id="Great">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inv-col-2">
+                            <div class="slot-box flex-layout-2">
+                                <div class="sub-box amuleto-top skills-grid">
+                                    <img src="svg/inv/Sec 2/top/Mothwing Cloak.png" alt="Cloak"   class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Mantis Claw.png"    alt="Mantis"  class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Crystal Heart.png"  alt="Crystal" class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Monarch Wings.png"  alt="Monarch" class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Shade Cloak.png"    alt="Shade"   class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Isma's Tear.png"    alt="Isma"    class="interactive-item disabled" data-percentage="2">
+                                    <img src="svg/inv/Sec 2/top/Kings.webp"          alt="Kings"   class="interactive-item disabled" data-percentage="2">
+                                </div>
+                                <div class="sub-box amuleto-bottom colosseums-container">
+                                    <p class="colosseums-title">Colosseums</p>
+                                    <div class="colosseums-row">
+                                        <img src="svg/inv/Sec 2/bot/tWarrior.webp"   alt="Warrior"   class="interactive-item disabled" id="cWarrior">
+                                        <img src="svg/inv/Sec 2/bot/tConqueror.webp" alt="Conqueror" class="interactive-item disabled" id="cConqueror">
+                                        <img src="svg/inv/Sec 2/bot/tFool.webp"      alt="Fool"      class="interactive-item disabled" id="cFool">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inv-col-3">
+                            <div class="slot-box flex-layout-3">
+                                <div class="sub-box desc-top dreamers-container">
+                                    <img src="svg/inv/Sec 3/dreamers/monomon.png" alt="monomon" class="interactive-item disabled" id="monomon">
+                                    <img src="svg/inv/Sec 3/dreamers/lurien.png"  alt="lurien"  class="interactive-item disabled" id="lurien">
+                                    <img src="svg/inv/Sec 3/dreamers/herrah.png"  alt="herrah"  class="interactive-item disabled" id="herrah">
+                                </div>
+                                <div class="sub-box desc-bottom">
+                                    <p id="completion-text">Completion <span id="completion-value">0</span>%</p>
+                                    <p id="text-clear">Clear Tracker</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── PANTALLA CHARMS ─── -->
+            <section class="slot" id="pantalla-charms">
+                <div class="content-area">
+                    <header><h2>Charms</h2></header>
+                    <div class="slot-box charms-grid-layout"></div>
+                </div>
+            </section>
+
+            <script src="scripts/charmData.js"></script>
+        </div>
+
+        <aside class="side-button right">
+            <img src="svg/derecha.svg" alt="Next">
+        </aside>
+    </div>
+
+    <!-- MODAL -->
+    <div id="custom-confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="shade-lord-eyes" id="shade-lord-container"></div>
+                <h3>Are you sure?</h3>
+            </div>
+            <div class="modal-buttons">
+                <button id="modal-yes">Yes</button>
+                <button id="modal-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="scripts/carrusel.js"></script>
+    <script src="scripts/porcentaje.js"></script>
+    <script src="scripts/ojos.js"></script>
+    <script src="scripts/sec1Data.js"></script>
+    <script src="scripts/panelGodTuner.js"></script>
+    <script src="scripts/panelDreamNail.js"></script>
+    <script src="scripts/panelMask.js"></script>
+    <script src="scripts/panelVessels.js"></script>
+    <script src="scripts/items.js"></script>
+</body>
+</html>
