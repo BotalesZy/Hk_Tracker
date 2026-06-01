@@ -1,1 +1,69 @@
 # Hk_Tracker
+An interactive completion tracker for Hollow Knight, built as a personal portfolio project. Track your progress toward the 112% completion mark with a stylized UI faithful to the game's aesthetic.
+
+Features
+  -Three-screen carousel: Bosses, Inventory, and Charms, with smooth slide transitions powered by Anime.js.
+  -Dynamic completion percentage: Updates in real time as you mark items.
+  -Inventory tracking: Nail upgrades, Spells (with upgrade states), Nail Arts, Skills, Colosseums, Dreamers, and Kings Soul.
+  -Mask Shards & Vessel Fragments: Visual panels with progress images that update every 4 shards / 3 fragments.
+  -Dream Nail panel: Checklist with essence milestones.
+  -God Tuner panel: Pantheon checklist linked to Godhome progression.
+  -Grimmchild cycle: Three-state charm logic (Grimmchild → Carefree Melody → reset) with NKG unlock/lock.
+  -All 40 Charms: Dynamically rendered grid.
+  -All Bosses: Common Bosses + Dream Warriors.
+  -Sound effects: Extracted from the game, played via Howler.js on every interaction.
+  -Particle animations: Dream Nail mist burst, God Tuner golden rays, Dreamer ring expansion, Nail sparks and cracks, spell particles, Grimm toast notification.
+  -Shade Lord modal: Confirmation dialog with blinking eyes and suspicious hover effect before clearing progress.
+  -Clear Tracker: Full reset with confirmation.
+
+Tech Stack
+
+  | Tool | Purpose |
+  | :--- | :--- |
+  | **HTML / CSS / JS** | Core structure and logic |
+  | **Anime.js v3.2.1** | All animations and particle systems |
+  | **Howler.js v2.2.4** | Audio playback and management |
+  | **CSS Custom Properties** | Theming and glass panel effects |
+  | **Vanilla JS** | All interactivity and state management (no frameworks) |
+
+📁 Project Structure
+
+  ├── index.html
+  ├── css/
+  │   ├── cssGen.css          # Main layout and component styles
+  │   ├── cleanB.css          # Background and base reset
+  │   ├── glassPanels.css     # Glass panel components
+  │   ├── fixes.css           # NKG lock, spell hover, dreamer states
+  │   └── grimm-toast.css     # Grimm warning toast notification
+  ├── scripts/
+  │   ├── carrusel.js         # Carousel navigation + navbar labels
+  │   ├── porcentaje.js       # Completion percentage calculator
+  │   ├── items.js            # Main click handler (single delegated listener)
+  │   ├── sounds.js           # Audio functions + all Anime.js animations
+  │   ├── charmData.js        # Charm grid renderer
+  │   ├── sec1Data.js         # Dynamic panel HTML generator
+  │   ├── panelMask.js        # Mask Shards panel logic
+  │   ├── panelVessels.js     # Vessel Fragments panel logic
+  │   ├── panelDreamNail.js   # Dream Nail panel logic
+  │   ├── panelGodTuner.js    # God Tuner panel logic
+  │   └── ojos.js             # Shade Lord eyes SVG
+  ├── svg/                    # All game assets (icons, backgrounds)
+  └── SE/                     # Sound effects (not included in repo)
+
+Audio Assets
+  Sound effects are extracted from Hollow Knight and are not included in this repository out of respect for Team Cherry's intellectual property. The SE/ folder structure expected by the project is:
+  
+  SE/
+  ├── hv/         # hvInicio.mp3, hvSalida.mp3
+  ├── nail/       # nailC.mp3, nailE.mp3, nailB.mp3
+  ├── dream/      # dnailE.mp3, dnailO.mp3, fail.mp3
+  ├── god/        # gtE.mp3, gtHit.mp3, gtC.mp3
+  ├── ui/         # Button.mp3, click.mp3, clear.mp3
+  ├── d/          # dreamerH.mp3
+  ├── charm/      # cSound.mp3
+  └── spells/     # spell N.mp3, dSpell N.mp3
+
+
+MIT License — applies to source code only (HTML, CSS, JavaScript)
+Game assets (artwork, audio) © Team Cherry — used for fan/educational purposes only
+This project is not affiliated with or endorsed by Team Cherry
