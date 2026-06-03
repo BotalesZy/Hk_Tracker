@@ -245,3 +245,31 @@
 #vessel-panel .panel-divider {
     margin: 6px 0;
 }
+
+/* ==========================================================================
+   AJUSTE DE POSICIÓN CORREGIDO — POPUP CONFIRMACIÓN SHADE LORD
+   ========================================================================== */
+/* Movemos quirúrgicamente la caja completa usando márgenes y el flujo estructural 
+   para evitar romper la matriz del SVG interno de los ojos */
+.glass-panel-local:has(#yes-btn),
+.glass-panel-local:has(.interactive-item),
+#shade-lord-popup,
+#popup-confirmacion {
+    /* Reseteamos los transforms geométricos viejos para curar los ojos */
+    transform: none !important;
+    
+    /* Forzamos el empuje hacia arriba alterando el top del viewport */
+    margin-top: -30px !important;
+    
+    /* Agrega un respiro interno por si el SVG queda pegado al borde superior del borde gris */
+    padding-top: 28px !important; 
+    
+    transition: margin-top 0.2s ease, opacity 0.2s ease;
+}
+
+/* Corrección de parpadeo y alineación para los vectores internos */
+.glass-panel-local:has(#yes-btn) .icono-giro,
+.glass-panel-local:has(#yes-btn) svg {
+    margin-top: 5px !important;
+    transform: none !important; /* Mantiene el vector en su escala nativa */
+}
