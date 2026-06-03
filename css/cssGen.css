@@ -585,3 +585,88 @@ img[alt="NKG"][data-nkg-locked="true"] {
     pointer-events: none; /* Para que no interfiera con el clic del checkbox */
     filter: drop-shadow(0 0 1px rgba(255,255,255,0.5)); /* Tema oscuro */
 }
+
+/* ==========================================================================
+   SISTEMA DE BLOQUEO DE ORIENTACIÓN (PORTRAIT)
+   ========================================================================== */
+
+/* Oculto por defecto en PC y pantallas horizontales */
+#bloqueo-orientacion {
+    display: none;
+}
+
+/* Se activa CADA VEZ que el cel se pone en vertical */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #bloqueo-orientacion {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        /* Usamos dvh para asegurar que tape el 100% real aunque Chrome saque sus barras */
+        height: 100dvh !important; 
+        background-color: #111111 !important; /* Gris oscuro estilo HK */
+        z-index: 999999 !important; /* Más arriba que el mismísimo Rey Pálido */
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .contenido-bloqueo {
+        color: #8f8f8f;
+        font-family: 'Trajan Pro', sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .icono-giro {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 15px;
+        color: #c3b499;
+        animation: rotarCelular 2s ease-in-out infinite;
+    }
+}
+
+/* Fuerza el ocultamiento absoluto cuando el dispositivo está acostado */
+@media screen and (orientation: landscape) {
+    #bloqueo-orientacion {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+    }
+}
+
+@keyframes rotarCelular {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-90deg); }
+}
+
+/* ==========================================================================
+   AJUSTE DE CAPAS (Z-INDEX) PARA BOTONES LATERALES EN MÓVIL
+   ========================================================================== */
+
+/* Las esquinas decorativas se van al fondo para no estorbar el touch */
+.inventory-borders, 
+.hud-corners,
+#pantalla-inventario::before,
+#pantalla-inventario::after {
+    z-index: 1 !important;
+    pointer-events: none !important; /* Hace que los clics atraviesen el adorno */
+}
+
+/* Los botones de navegación se traen al frente absoluto */
+.nav-buttons-container,
+.bosses-nav-btn,
+.charms-nav-btn,
+#pantalla-inventario .top-nav-links,
+#pantalla-inventario a[href*="bosses"],
+#pantalla-inventario a[href*="charms"] {
+    position: relative !important;
+    z-index: 99999 !important; /* Por encima de las esquinas */
+    pointer-events: auto !important; /* Asegura que registren el tap del dedo */
+    cursor: pointer !important;
+}
