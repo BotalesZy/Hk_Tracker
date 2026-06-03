@@ -31,15 +31,15 @@
         letter-spacing: 1px !important;
     }
 
-    /* ── Contenedores base sin parches grises ── */
+    /* ── Contenedores base optimizados para la barra de Chrome móvil (dvh) ── */
     .main-container,
     .sections-wrapper,
     .content-area,
     #pantalla-inventario {
-        height: 100vh !important;
-        max-height: 100vh !important;
-        overflow: visible !important;
-        background: transparent !important; /* Quita el fondo que tapa tu SVG */
+        height: 100dvh !important;       /* Cambiado a dvh para ignorar la barra de URL */
+        max-height: 100dvh !important;   /* Cambiado a dvh */
+        overflow: hidden !important;     /* Congela el viewport para evitar scroll molesto */
+        background: transparent !important; 
         background-color: transparent !important;
     }
 
@@ -51,21 +51,27 @@
     }
 
     /* ==========================================================================
-       BOSSES
+       BOSSES — Posicionamiento Forzado Absoluto
        ========================================================================== */
     #pantalla-bosses .slot-box,
     #pantalla-bosses .slot-box.bosses-scroll-container {
         display: block !important;
         width: 78vw !important;
-        height: 62vh !important;
-        max-height: 62vh !important;
-        margin: 22px auto 0 auto !important;
+        height: 75dvh !important;        /* Más alto para aprovechar la pantalla */
+        max-height: 75dvh !important;    
         padding: 8px 15px !important;
         overflow-y: scroll !important;
         overflow-x: hidden !important;
         background: rgba(0, 0, 0, 0.4) !important;
         border-radius: 6px;
         -webkit-overflow-scrolling: touch;
+
+        /* FUERZA BRUTA: Lo arrancamos de su posición actual y lo subimos */
+        position: absolute !important;
+        top: 36% !important;             /* Cambia este número a 32% o 30% si quieres que suba MÁS */
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;            /* Resetea cualquier conflicto */
     }
 
     .boss-grid-layout {
@@ -84,7 +90,7 @@
 
     .boss-section-title {
         font-size: 0.75rem !important;
-        margin: 6px 0 !important;
+        margin: 2px 0 8px 0 !important;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
@@ -96,23 +102,29 @@
     }
 
     /* ==========================================================================
-       CHARMS
+       CHARMS — Posicionamiento Forzado Absoluto
        ========================================================================== */
     #pantalla-charms .slot-box {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         width: 78vw !important;
-        height: 62vh !important;
-        max-height: 62vh !important;
+        height: 75dvh !important;        /* Más alto para evitar que se corten los textos inferiores */
+        max-height: 75dvh !important;    
         min-height: 0 !important;
-        margin: 22px auto 0 auto !important;
         padding: 8px 15px !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
         background: rgba(0, 0, 0, 0.4) !important;
         border-radius: 6px;
         -webkit-overflow-scrolling: touch;
+
+        /* FUERZA BRUTA: Lo arrancamos de su posición actual y lo subimos */
+        position: absolute !important;
+        top: 36% !important;             /* Cambia este número a 32% o 30% si quieres que suba MÁS */
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;            /* Resetea cualquier conflicto */
     }
 
     #pantalla-charms .charms-grid-layout {
@@ -158,15 +170,26 @@
     }
 
     /* ==========================================================================
-       INVENTARIO — 3 columnas compactas
+       INVENTARIO — Escala Elástica Dinámica para Chrome Móvil
        ========================================================================== */
     #pantalla-inventario .main-inventory-layout {
-        height: 78vh !important;
+        height: 70dvh !important;        
         gap: 6px !important;
         padding: 0 4px !important;
         align-items: stretch !important;
-        margin-top: 22px !important;
+        width: 100% !important;
         background: transparent !important;
+
+        /* SOLUCIÓN RADICAL: Lo despegamos del flujo y lo forzamos a subir */
+        position: absolute !important;
+        top: 45% !important;   /* Si aún lo notas bajo, puedes bajar este número a 42% o 40% */
+        left: 50% !important;  /* Lo centra horizontalmente */
+        
+        /* Ejecuta el centrado horizontal (translateX), vertical (translateY) y la escala juntos */
+        transform: translate(-50%, -50%) scale(0.88) !important; 
+        transform-origin: center center !important;
+        
+        margin: 0 !important;  /* Mata cualquier margen heredado */
     }
 
     .inv-col-1 { width: 32% !important; height: 100% !important; background: transparent !important; }
@@ -217,12 +240,20 @@
         z-index: 3;
     }
 
-    #spellTopLeft  { top: 8px !important; left: 22px !important; margin: 0 !important; }
-    #spellTopRight { top: 8px !important; right: 22px !important; margin: 0 !important; }
-    #spellBottom   { bottom: 6px !important; left: 50% !important; transform: translateX(-50%) !important; height: 32px !important; margin: 0 !important; }
+    /* ── Hechizos separados más (Col 1) ── */
+    #spellTopLeft  { top: -2px !important; left: 10px !important; margin: 0 !important; }
+    #spellTopRight { top: -2px !important; right: 10px !important; margin: 0 !important; }
+    #spellBottom   { bottom: -6px !important; left: 50% !important; transform: translateX(-50%) !important; height: 32px !important; margin: 0 !important; }
 
-    .item-6 { padding: 2px !important; }
-    .nail-arts-container .interactive-item { height: 110% !important; }
+    /* ── Artes del aguijón más grandes ── */
+    .item-6 { padding: 0px !important; }
+    
+    .nail-arts-container {
+        transform: scale(1.25) !important; /* Aumenta el tamaño general del bloque de artes */
+        transform-origin: center bottom !important;
+    }
+    
+    .nail-arts-container .interactive-item { height: 115% !important; }
 
     /* ── Col 2 ── */
     .flex-layout-2 {
@@ -230,7 +261,6 @@
         gap: 4px !important;
     }
 
-    /* Bajamos sutilmente del 46% al 40% para abrir espacio arriba del Coliseo */
     .amuleto-top { height: 40% !important; }
 
     .skills-grid {
@@ -249,17 +279,17 @@
         justify-content: flex-start !important;
     }
 
-    /* AJUSTE: Margen negativo para subir el título de Coliseos notablemente */
+    /* ── Coliseos y título más abajo ── */
     .colosseums-title { 
         font-size: 0.55rem !important; 
-        margin-top: -15px !important; 
-        margin-bottom: 8px !important; 
+        margin-top: 2px !important; /* Cambiado de -15px a 2px para bajarlos */
+        margin-bottom: 12px !important; 
     }
 
     .colosseums-row {
         gap: 12px !important;
         height: 65% !important;
-        margin-top: 0 !important;
+        margin-top: 4px !important; /* Espacio extra para empujar las estructuras abajo */
     }
 
     .colosseums-row .interactive-item { 
@@ -287,6 +317,7 @@
         align-items: center !important;
     }
 
+    /* ── Dreamers alineados a la derecha ── */
     .dreamers-container {
         display: flex !important;
         flex-direction: row !important;
@@ -296,6 +327,9 @@
         height: 100% !important;
         gap: 14px !important;
         margin-top: 0 !important;
+        
+        /* Ajuste micro-métrico: 2 píxeles exactos a la derecha */
+        transform: translateX(2px) !important; 
     }
 
     .dreamers-container .interactive-item {
@@ -317,7 +351,6 @@
         margin-top: 6px !important; 
     }
 
-    /* Estilo del Porcentaje de Completado */
     #completion-text { 
         font-size: 0.58rem !important; 
         color: #ffffff !important;
@@ -328,7 +361,6 @@
         text-align: center !important;
     }
     
-    /* Estilo del Clear Tracker */
     #text-clear { 
         font-size: 0.46rem !important; 
         color: #888888 !important; 
@@ -345,12 +377,10 @@
     .inv-col-2::before { left: -4px !important; }
     .inv-col-2::after  { right: -4px !important; }
 
-
     /* ==========================================================================
        COMPORTAMIENTO, INTERACCIÓN Y FIX DE HOVER PARA PANTALLAS TÁCTILES
        ========================================================================== */
 
-    /* Anular hover persistente en móviles para ítems, hechizos y bosses */
     .interactive-item:not(.disabled):hover,
     .interactive-spell:not(.disabled):hover,
     .boss-grid-layout .interactive-item:hover {
@@ -358,12 +388,10 @@
         transform: none !important;
     }
 
-    /* Mantiene el filtro oscuro/gris si el elemento está bloqueado de origen */
     .interactive-item.disabled:hover {
         filter: brightness(0.2) grayscale(0.5) !important;
     }
 
-    /* Feedback visual de pulsación (Efecto Click/Tap físico al presionar) */
     .interactive-item:not(.disabled):active,
     .interactive-spell:not(.disabled):active {
         transform: scale(0.92) !important;
