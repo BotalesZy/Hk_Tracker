@@ -1,0 +1,373 @@
+/* ==========================================================================
+   ESTE CSS SOLO SE ACTIVA EN CELULARES EN MODO HORIZONTAL (LANDSCAPE)
+   ========================================================================== */
+
+@media screen and (max-width: 932px) and (orientation: landscape) and (hover: none) {
+
+    /* ── Fondo móvil corregido ── */
+    body {
+        background-image: url('../svg/backA.svg') !important;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-color: transparent !important;
+    }
+
+    /* ── Navbar ── */
+    .nav-bar { padding: 8px 30px 0; }
+
+    .nav-title {
+        font-size: 0.89rem !important;
+        letter-spacing: 2px !important;
+        top: 8px !important;
+        margin-left: -1px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .nav-prev-label,
+    .nav-next-label {
+        font-size: 0.6rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* ── Contenedores base sin parches grises ── */
+    .main-container,
+    .sections-wrapper,
+    .content-area,
+    #pantalla-inventario {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: visible !important;
+        background: transparent !important; /* Quita el fondo que tapa tu SVG */
+        background-color: transparent !important;
+    }
+
+    /* Quitar oscurecimiento heredado de cssGen.css */
+    #pantalla-inventario .slot-box,
+    #pantalla-inventario .sub-box {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* ==========================================================================
+       BOSSES
+       ========================================================================== */
+    #pantalla-bosses .slot-box,
+    #pantalla-bosses .slot-box.bosses-scroll-container {
+        display: block !important;
+        width: 78vw !important;
+        height: 62vh !important;
+        max-height: 62vh !important;
+        margin: 22px auto 0 auto !important;
+        padding: 8px 15px !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .boss-grid-layout {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        row-gap: 14px !important;
+        column-gap: 6px !important;
+        width: 100% !important;
+        justify-items: center !important;
+    }
+
+    #pantalla-bosses .grid-circle-slot {
+        width: 76px !important;
+        height: 76px !important;
+    }
+
+    .boss-section-title {
+        font-size: 0.75rem !important;
+        margin: 6px 0 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .boss-name {
+        font-size: 0.48rem !important;
+        letter-spacing: -0.1px !important;
+        white-space: nowrap !important;
+    }
+
+    /* ==========================================================================
+       CHARMS
+       ========================================================================== */
+    #pantalla-charms .slot-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 78vw !important;
+        height: 62vh !important;
+        max-height: 62vh !important;
+        min-height: 0 !important;
+        margin: 22px auto 0 auto !important;
+        padding: 8px 15px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #pantalla-charms .charms-grid-layout {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        row-gap: 14px !important;
+        column-gap: 8px !important;
+        padding: 5px 5px 30px 5px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    #pantalla-charms .grid-circle-slot {
+        width: 68px !important;
+        height: 68px !important;
+    }
+
+    .charm-name {
+        font-size: 0.48rem !important;
+        margin-top: -1px !important;
+    }
+
+    .grid-circle-slot img {
+        max-width: 82% !important;
+        max-height: 82% !important;
+        object-fit: contain !important;
+    }
+
+    /* Ocultar scrollbars */
+    #pantalla-bosses .slot-box::-webkit-scrollbar,
+    #pantalla-charms .slot-box::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: transparent !important;
+    }
+
+    #pantalla-bosses .slot-box,
+    #pantalla-charms .slot-box {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    /* ==========================================================================
+       INVENTARIO — 3 columnas compactas
+       ========================================================================== */
+    #pantalla-inventario .main-inventory-layout {
+        height: 78vh !important;
+        gap: 6px !important;
+        padding: 0 4px !important;
+        align-items: stretch !important;
+        margin-top: 22px !important;
+        background: transparent !important;
+    }
+
+    .inv-col-1 { width: 32% !important; height: 100% !important; background: transparent !important; }
+    .inv-col-2 { width: 36% !important; height: 100% !important; background: transparent !important; }
+    .inv-col-3 { width: 32% !important; height: 100% !important; background: transparent !important; }
+
+    /* ── Col 1 ── */
+    .grid-layout-1 {
+        gap: 4px !important;
+        padding: 4px !important;
+        grid-template-rows: calc(35% - 4px) calc(50% - 4px) calc(15% - 4px) !important;
+    }
+
+    #mask {
+        width: 55px !important;
+        height: 75px !important;
+    }
+
+    .god-tuner-small { height: 32px !important; }
+    .vessel-small    { height: 30px !important; }
+
+    .item-2.item-stacked-vertical {
+        gap: 4px !important;
+        padding: 4px 0 !important;
+    }
+
+    .dream-nail-large { padding: 3px !important; }
+    .item-4           { padding: 6px !important; }
+
+    .item-5.spells-grid-container { 
+        padding: 0 !important; 
+        position: relative !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    #focus {
+        height: 52px !important;
+        width: auto !important;
+        z-index: 2;
+    }
+
+    .interactive-spell { 
+        position: absolute !important;
+        height: 28px !important;
+        width: auto !important;
+        z-index: 3;
+    }
+
+    #spellTopLeft  { top: 8px !important; left: 22px !important; margin: 0 !important; }
+    #spellTopRight { top: 8px !important; right: 22px !important; margin: 0 !important; }
+    #spellBottom   { bottom: 6px !important; left: 50% !important; transform: translateX(-50%) !important; height: 32px !important; margin: 0 !important; }
+
+    .item-6 { padding: 2px !important; }
+    .nail-arts-container .interactive-item { height: 110% !important; }
+
+    /* ── Col 2 ── */
+    .flex-layout-2 {
+        padding: 6px !important;
+        gap: 4px !important;
+    }
+
+    /* Bajamos sutilmente del 46% al 40% para abrir espacio arriba del Coliseo */
+    .amuleto-top { height: 40% !important; }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 4px !important;
+        padding: 4px !important;
+    }
+
+    .skills-grid .interactive-item { max-height: 34px !important; }
+
+    .amuleto-bottom.colosseums-container {
+        height: 56% !important; 
+        padding: 2px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+
+    /* AJUSTE: Margen negativo para subir el título de Coliseos notablemente */
+    .colosseums-title { 
+        font-size: 0.55rem !important; 
+        margin-top: -15px !important; 
+        margin-bottom: 8px !important; 
+    }
+
+    .colosseums-row {
+        gap: 12px !important;
+        height: 65% !important;
+        margin-top: 0 !important;
+    }
+
+    .colosseums-row .interactive-item { 
+        height: 115% !important; 
+        object-fit: contain !important;
+    }
+
+    /* ── Col 3 ── */
+    .flex-layout-3 {
+        padding: 4px !important;
+        gap: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; 
+        align-items: center !important;
+        height: 100% !important;
+    }
+
+    .desc-top {
+        height: 55% !important;
+        max-height: 55% !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .dreamers-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 100% !important;
+        gap: 14px !important;
+        margin-top: 0 !important;
+    }
+
+    .dreamers-container .interactive-item {
+        height: 95px !important;
+        max-height: none !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+
+    .desc-bottom {
+        height: 50% !important; 
+        max-height: 50% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important; 
+        align-items: center !important;
+        padding: 0 !important;
+        margin-top: 6px !important; 
+    }
+
+    /* Estilo del Porcentaje de Completado */
+    #completion-text { 
+        font-size: 0.58rem !important; 
+        color: #ffffff !important;
+        margin: 0 0 4px 0 !important;
+        white-space: nowrap !important;
+        display: block !important;
+        letter-spacing: 1px !important;
+        text-align: center !important;
+    }
+    
+    /* Estilo del Clear Tracker */
+    #text-clear { 
+        font-size: 0.46rem !important; 
+        color: #888888 !important; 
+        margin: 0 !important; 
+        white-space: nowrap !important;
+        display: block !important;
+        text-decoration: underline !important;
+        letter-spacing: 0.5px !important;
+        cursor: pointer;
+        text-align: center !important;
+    }
+
+    /* ── Líneas divisorias ── */
+    .inv-col-2::before { left: -4px !important; }
+    .inv-col-2::after  { right: -4px !important; }
+
+
+    /* ==========================================================================
+       COMPORTAMIENTO, INTERACCIÓN Y FIX DE HOVER PARA PANTALLAS TÁCTILES
+       ========================================================================== */
+
+    /* Anular hover persistente en móviles para ítems, hechizos y bosses */
+    .interactive-item:not(.disabled):hover,
+    .interactive-spell:not(.disabled):hover,
+    .boss-grid-layout .interactive-item:hover {
+        filter: none !important;
+        transform: none !important;
+    }
+
+    /* Mantiene el filtro oscuro/gris si el elemento está bloqueado de origen */
+    .interactive-item.disabled:hover {
+        filter: brightness(0.2) grayscale(0.5) !important;
+    }
+
+    /* Feedback visual de pulsación (Efecto Click/Tap físico al presionar) */
+    .interactive-item:not(.disabled):active,
+    .interactive-spell:not(.disabled):active {
+        transform: scale(0.92) !important;
+        filter: brightness(1.6) !important;
+        transition: transform 0.06s ease, filter 0.06s ease !important;
+    }
+}
