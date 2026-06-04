@@ -51,10 +51,10 @@
         margin: 5px 0 !important;
     }
 
-    /* ── Checklist más compacto ── */
+    /* ── Checklist unificado con más aire (Evita que se vea junto) ── */
     .checklist-container,
     .panel-inner-list.checklist-container {
-        gap: 6px !important;
+        gap: 14px !important; /* Aumentado de 6px a 14px para dar más espacio vertical */
         overflow-y: auto !important;
         max-height: 60vh !important;
     }
@@ -97,9 +97,7 @@
         width: 3px !important;
     }
 
-
-
-     /* ── Dream Nail panel centrado ── */
+    /* ── Dream Nail panel centrado ── */
     .glass-panel-local.dreamnail-theme,
     #dreamnail-panel {
         position: fixed !important;
@@ -142,7 +140,7 @@
 
     .dream-nail-theme .checklist-container,
     .dreamnail-theme .checklist-container {
-        gap: 6px !important;
+        gap: 14px !important; /* Sincronizado con el gap general */
         overflow-y: auto !important;
         max-height: 60vh !important;
     }
@@ -154,7 +152,7 @@
     }
 
     #godtuner-panel .task-text {
-        font-size: 0.6rem !important;
+        font-size: 0.65rem !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -162,9 +160,66 @@
     }
 
     #godtuner-panel .checklist-container {
-        gap: 6px !important;
+        gap: 24px !important;
         overflow-y: auto !important;
         max-height: 60vh !important;
+    }
+
+    /* ── God Tuner: forzar mismo comportamiento que Vessel (Nueva lógica de estados) ── */
+    #godtuner-panel.animate-scale-in,
+    #godtuner-panel:not(.hidden) {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        height: auto !important;
+        max-height: 55vh !important;
+    }
+
+    #godtuner-panel .glass-panel-header {
+        flex-shrink: 0 !important;
+    }
+
+    #godtuner-panel hr.panel-divider {
+        flex-shrink: 0 !important;
+        margin: 5px 0 !important;
+    }
+
+    #godtuner-panel .panel-inner-list.checklist-container {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        max-height: 40vh !important;
+        padding-right: 6px !important;
+        gap: 24px !important;
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+    }
+
+    /* Los checkboxes del god tuner no deben salirse */
+    #godtuner-panel .checklist-item {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 8px 2px !important;
+        overflow: hidden !important;
+        min-height: 34px !important;
+    }
+
+    #godtuner-panel .task-text {
+        flex: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 0.65rem !important;
+        margin-right: 12px !important;
+    }
+
+    #godtuner-panel .task-checkbox {
+        flex-shrink: 0 !important;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     /* ── Animación desde el centro para todos ── */
@@ -194,9 +249,6 @@
         100% { transform: translateX(-50%) scaleY(0); opacity: 0; }
     }
 }
-
-   
-
 
 /* ==========================================================================
    MODAL SHADE LORD — Móvil Landscape
