@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 /* ==========================================================================
-   PANEL PRINCIPAL CONFIGURADO (Tema: Fragmentos y Vasijas - Tamaño Completo)
+   PANEL PRINCIPAL CONFIGURADO (Tema: Fragmentos y Vasijas - Tamaño Unificado)
    ========================================================================== */
 .glass-panel-local.shards-vessels-theme {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; 
+    height: 100%; /* Ahora ocupa el 100% exacto, igual que las máscaras */
     
     /* Fondo translúcido sutil basado en F5F5F0 y degradado oscuro */
     background: linear-gradient(135deg, rgba(245, 245, 240, 0.08) 0%, rgba(15, 15, 15, 0.82) 100%);
@@ -17,7 +17,7 @@
     
     /* Outline de contraste fino con el color solicitado */
     border: 2px solid rgba(245, 245, 240, 0.35);  
-    border-radius: 12px; /* Recuperamos tus 12px originales que quedan mejor en paneles grandes */
+    border-radius: 12px; 
     box-shadow: 0 0 25px rgba(245, 245, 240, 0.12), 
                 inset 0 0 15px rgba(245, 245, 240, 0.05);
     
@@ -26,7 +26,7 @@
     z-index: 50; 
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Evita que el panel entero rompa el contenedor */
+    overflow: hidden; /* Evita desbordamientos */
 }
 
 .glass-panel-local.hidden {
@@ -66,7 +66,7 @@
 .shards-vessels-theme .panel-title {
     font-family: 'Cinzel', serif;
     color: #F5F5F0;
-    font-size: 1.1rem; /* Regresamos a tu tamaño original ligeramente más grande */
+    font-size: 1.1rem;
     margin: 0;
     letter-spacing: 2px;
     font-weight: 600;
@@ -77,10 +77,10 @@
     border: 0;
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(245, 245, 240, 0.5), transparent);
-    margin: 10px 0; /* Ajustado al espaciado original */
+    margin: 10px 0;
 }
 
-/* ─── BOTÓN DE MINIMIZAR ESTILIZADO CON EL NUEVO COLOR ─── */
+/* ─── BOTÓN DE MINIMIZAR ESTILIZADO ─── */
 #minimize-panel-btn,
 #minimize-dream-btn,
 #minimize-mask-btn,
@@ -107,7 +107,7 @@
 }
 
 /* ==========================================================================
-   SECCIÓN CHECKLIST CON SCROLLBAR LIMPIO (Ideal para listas largas)
+   SECCIÓN CHECKLIST CON SCROLLBAR LIMPIO
    ========================================================================== */
 .checklist-container,
 .panel-inner-list.checklist-container {
@@ -162,7 +162,7 @@
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Checkbox personalizado modificado para la X gigante */
+/* Checkbox personalizado */
 .task-checkbox,
 .mask-shard-task,
 .vessel-fragment-task {
@@ -176,7 +176,7 @@
     cursor: pointer;
     position: relative; 
     transition: all 0.2s ease;
-    flex-shrink: 0; /* Evita que el checkbox se aplaste si el texto es largo */
+    flex-shrink: 0;
 }
 
 .task-checkbox:hover,
@@ -222,54 +222,34 @@
     width: 100%; 
 }
 
-/* Keyframe para el impacto de la X */
 @keyframes pop-x {
     0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
     100% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
 }
 
 /* ==========================================================================
-   RECORTE QUIRÚRGICO EXCLUSIVO PARA EL PANEL DE VASIJAS
+   REPARACIÓN EXCLUSIVA PARA EL PANEL DE VASIJAS (ELIMINADO RECORTE FORZADO)
    ========================================================================== */
 #vessel-panel {
-    /* Ajusta la altura exacta para que termine justo arriba de las magias */
-    height: 68.67% !important; 
-    
-    /* En caso de que se use en una resolución donde el texto no quepa completo,
-       el contenedor general no se desbordará */
+    height: 100% !important; /* Ahora es del mismo tamaño que las Máscaras */
     overflow: hidden; 
 }
 
-/* Ajuste opcional: Si notas que el título y la "X" quedan muy pegados al borde
-   al reducir el tamaño, puedes recortar ligeramente este margen inferior */
-#vessel-panel .panel-divider {
-    margin: 6px 0;
-}
-
 /* ==========================================================================
-   AJUSTE DE POSICIÓN CORREGIDO — POPUP CONFIRMACIÓN SHADE LORD
+   AJUSTE DE POSICIÓN — POPUP CONFIRMACIÓN SHADE LORD
    ========================================================================== */
-/* Movemos quirúrgicamente la caja completa usando márgenes y el flujo estructural 
-   para evitar romper la matriz del SVG interno de los ojos */
 .glass-panel-local:has(#yes-btn),
 .glass-panel-local:has(.interactive-item),
 #shade-lord-popup,
 #popup-confirmacion {
-    /* Reseteamos los transforms geométricos viejos para curar los ojos */
     transform: none !important;
-    
-    /* Forzamos el empuje hacia arriba alterando el top del viewport */
     margin-top: -30px !important;
-    
-    /* Agrega un respiro interno por si el SVG queda pegado al borde superior del borde gris */
     padding-top: 28px !important; 
-    
     transition: margin-top 0.2s ease, opacity 0.2s ease;
 }
 
-/* Corrección de parpadeo y alineación para los vectores internos */
 .glass-panel-local:has(#yes-btn) .icono-giro,
 .glass-panel-local:has(#yes-btn) svg {
     margin-top: 5px !important;
-    transform: none !important; /* Mantiene el vector en su escala nativa */
+    transform: none !important;
 }
