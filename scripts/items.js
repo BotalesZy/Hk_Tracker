@@ -42,7 +42,20 @@ document.addEventListener('click', (event) => {
     }
 
     if (event.target.closest('#modal-yes')) {
+        // 1. Añadir clase disabled a todos los elementos interactivos
         document.querySelectorAll('.interactive-item, .interactive-spell').forEach(el => el.classList.add('disabled'));
+
+        // ==========================================================================
+        // FIX CRÍTICO: Limpieza de estilos inline y animaciones del God Tuner (#godT)
+        // ==========================================================================
+        const godTuner = document.getElementById('godT');
+        if (godTuner) {
+            godTuner.style.animation = 'none'; // Detiene la animación gtChispazoApagado de golpe
+            godTuner.style.filter = '';        // Remueve el filtro inline para que use el del CSS (.disabled)
+            godTuner.style.transform = '';     // Remueve escalas inline residuales
+            void godTuner.offsetWidth;         // Truco de reflow para forzar al navegador a redibujarlo gris
+        }
+        // ==========================================================================
 
         const spells = {
             spellTopLeft:  "svg/inv/Sec 1/magia/Vengeful Spirit.png",
@@ -285,16 +298,14 @@ const confirmModal = document.getElementById('custom-confirm-modal');
 
 if (confirmModal) {
     confirmModal.addEventListener('click', (event) => {
-        // Si el clic fue directamente en el fondo oscuro y no dentro de la caja de botones:
         if (event.target === confirmModal) {
-            confirmModal.classList.remove('show'); // Esconde el modal
+            confirmModal.classList.remove('show'); 
         }
     });
 }
 
 // 2. CERRAR CUALQUIER PANEL GLASS AL TOCAR FUERA DE ÉL
 document.addEventListener('click', (event) => {
-    // Lista de todos tus paneles
     const paneles = [
         document.getElementById('mask-panel'),
         document.getElementById('vessel-panel'),
@@ -302,14 +313,11 @@ document.addEventListener('click', (event) => {
         document.getElementById('dreamnail-panel')
     ];
 
-    // Buscamos cuál es el trigger o botón que abre paneles para no cerrarlo al interactuar
     const esBotonAbrir = event.target.closest('#nail, #dreamNail, #godT, .interactive-item, .interactive-spell');
     
-    // Si el usuario NO tocó un botón de apertura, verificamos si tocó fuera de un panel activo
     if (!esBotonAbrir) {
         paneles.forEach(panel => {
             if (panel && !panel.classList.contains('hidden')) {
-                // Si el clic NO fue dentro del panel, lo cerramos poniéndole 'hidden'
                 if (!panel.contains(event.target)) {
                     panel.classList.add('hidden');
                 }
