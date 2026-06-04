@@ -670,3 +670,124 @@ img[alt="NKG"][data-nkg-locked="true"] {
     pointer-events: auto !important; /* Asegura que registren el tap del dedo */
     cursor: pointer !important;
 }
+
+/* ==========================================================================
+   FIJACIÓN QUIRÚRGICA — POSICIÓN DE TUERCA Y EFECTO NO-FX
+   ========================================================================= */
+
+/* 1. Curar la especificidad de NO-FX (El interruptor de efectos visuales)
+   Le ganamos a tus otros archivos forzando el selector 'div' y '!important' */
+body.no-fx div.glass-panel-local,
+body.no-fx div#bloqueo-orientacion {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(15, 15, 15, 0.98) !important; /* Fondo opaco rápido */
+    box-shadow: none !important;
+}
+
+body.no-fx .animate-scale-in,
+body.no-fx .animate-scale-out {
+    animation: none !important; /* Desactiva animaciones */
+}
+
+
+/* 2. Alinear la tuerca junto a Clear Tracker en móvil (En Horizontal) */
+.desc-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    gap: 5px !important;
+}
+
+/* Contenedor que integra el texto y el botón */
+.container-clear-ajustes {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important; /* Espacio entre texto y tuerca */
+    width: auto !important;
+    margin-bottom: 2px !important;
+}
+
+/* El texto de Clear Tracker original */
+#text-clear {
+    margin: 0 !important;
+    display: inline-block !important;
+    font-size: 0.8rem !important; /* Ajuste para que quepa bien en horizontal */
+}
+
+/* Ajuste del botón de la tuerca para que sea táctil pero minimalista */
+#btn-ajustes-hud {
+    background: rgba(245, 245, 240, 0.03) !important;
+    border: 1px solid rgba(245, 245, 240, 0.2) !important;
+    border-radius: 4px !important;
+    color: rgba(245, 245, 240, 0.6) !important;
+    padding: 4px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+    outline: none !important;
+}
+
+/* Hover estético */
+#btn-ajustes-hud:hover {
+    background: rgba(245, 245, 240, 0.15) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 6px rgba(245, 245, 240, 0.3) !important;
+    transform: scale(1.05) !important;
+}
+
+/* 3. Fijación del Popup en móvil (Para que no flote) */
+div#modal-ajustes {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 320px !important;
+    height: auto !important;
+    max-height: 240px !important;
+    padding: 18px !important;
+    z-index: 99999 !important; /* Por encima de todo */
+}
+
+
+/* --- SWITCHES ESTILO MINIMALISTA CREMA (Integrados) --- */
+.ajustes-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 15px;
+    padding: 5px;
+}
+.ajuste-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(245, 245, 240, 0.04);
+    padding-bottom: 8px;
+}
+.switch-game { position: relative; display: inline-block; width: 42px; height: 22px; flex-shrink: 0; }
+.switch-game input { opacity: 0; width: 0; height: 0; }
+.slider-game {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(15, 15, 15, 0.8);
+    border: 1px solid rgba(245, 245, 240, 0.3);
+    transition: .2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+.slider-game:before {
+    position: absolute; content: ""; height: 14px; width: 14px;
+    left: 3px; bottom: 3px; background-color: rgba(245, 245, 240, 0.5);
+    transition: .2s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 2px;
+}
+input:checked + .slider-game { border-color: rgba(245, 245, 240, 0.8); box-shadow: 0 0 8px rgba(245, 245, 240, 0.2); }
+input:checked + .slider-game:before { transform: translateX(20px); background-color: #F5F5F0; box-shadow: 0 0 5px rgba(245, 245, 240, 0.6); }
+
+/* Control de visibilidad del modal */
+.hidden {
+    display: none !important;
+}
