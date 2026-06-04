@@ -177,11 +177,12 @@
 .checklist-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* importante */
     padding: 5px 2px;
     cursor: pointer;
     border-bottom: 1px solid rgba(245, 245, 240, 0.04);
     user-select: none;
+    gap: 10px;
 }
 
 /* El texto base del checklist */
@@ -191,6 +192,12 @@
     font-size: 0.85rem;
     position: relative;
     transition: color 0.3s ease;
+
+    flex: 1;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    padding-right: 10px;
 }
 
 /* Línea del tachado animado */
