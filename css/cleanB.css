@@ -1,0 +1,244 @@
+/* ==========================================================================
+    ─── MODAL GIGANTE ESTILO SHADE LORD (MORFISMO ORGÁNICO VECTORIAL) ───
+    ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo exterior oscuro atmosférico */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Cuadro masivo totalmente negro */
+.modal-content {
+    background-color: #000000;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 50px 40px; 
+    width: 650px;       
+    min-height: 480px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 1), 0 0 30px rgba(0, 0, 0, 0.8);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Motor de centrado vertical para el bloque superior (Ojos + Texto) */
+.modal-body {
+    width: 100%;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+/* ==========================================================================
+    ─── CONTENEDOR CENTRAL DE OJOS ─── 
+    ========================================================================== */
+.shade-lord-eyes {
+    width: 100%;
+    height: 121px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* El SVG único inyectado con brillo cinemático */
+.shade-lord-eyes svg {
+    height: 121px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.65));
+}
+
+/* ==========================================================================
+    ─── NÚCLEO ANIMACIÓN: ESTADO POR DEFECTO Y APERTURA ─── 
+    ========================================================================== */
+.ojo-shadelord {
+    fill: #ffffff;
+    
+    /* CRÍTICO: Cálculos desde el espacio local de cada path para respetar su diagonal */
+    transform-box: fill-box;
+    transform-origin: center center;
+}
+
+/* FILA INTERIOR (Ojos Centrales): Se abren con ritmo elástico y luego retoman el parpadeo infinito */
+.ojo-shadelord.g1 {
+    animation: abrirCentral 1.4s cubic-bezier(0.25, 1, 0.5, 1), parpadeoReal 5s infinite ease-in-out 1.4s;
+}
+
+/* FILA EXTERIOR (Ojos Periféricos): Se abren un poco después y retoman su propio parpadeo desfasado */
+.ojo-shadelord.g2 {
+    animation: abrirPeriferico 1.6s cubic-bezier(0.25, 1, 0.5, 1), parpadeoReal 5s infinite ease-in-out 1.6s;
+}
+
+/* Animación de parpadeo anatómico local estándar (Bucle pasivo) */
+@keyframes parpadeoReal {
+    0%, 90%, 100% { 
+        transform: scaleY(1) scaleX(1);
+    }
+    93%, 95% { 
+        transform: scaleY(0.01) scaleX(1);
+    }
+}
+
+/* ==========================================================================
+    ─── ESTADO HOVER: SQUINT ANATÓMICO POR KEYFRAMES (CONGRUENCIA REAL) ─── 
+    ========================================================================= */
+
+/* Al entrar en sospecha (.suspicious), pisamos las animaciones por defecto e inyectamos
+   la coreografía pesada de entrecerrado que se congela al final (forwards) */
+.shade-lord-eyes.suspicious .ojo-shadelord.g1 {
+    animation: entrecerrarCentral 1.4s forwards cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.shade-lord-eyes.suspicious .ojo-shadelord.g2 {
+    animation: entrecerrarPeriferico 1.6s forwards cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* ─── KEYFRAMES DE ENTRADA (HACER HOVER) ─── */
+@keyframes entrecerrarCentral {
+    0% { 
+        transform: scaleY(1) scaleX(1); 
+    }
+    15% { 
+        /* Micro tiron muscular de alerta o sorpresa inicial */
+        transform: scaleY(1.05) scaleX(0.98); 
+    }
+    60% { 
+        /* Cierre principal controlado y suave hacia sus ejes inclinados */
+        transform: scaleY(0.4) scaleX(0.92); 
+    }
+    80% { 
+        /* Pequeño rebote por la masa pesada del párpado del vacío */
+        transform: scaleY(0.47) scaleX(0.94); 
+    }
+    100% { 
+        /* Estado final tenso, grueso y perfectamente alineado a su diagonal */
+        transform: scaleY(0.45) scaleX(0.93); 
+    }
+}
+
+@keyframes entrecerrarPeriferico {
+    0% { 
+        transform: scaleY(1) scaleX(1); 
+    }
+    20% { 
+        transform: scaleY(1.03) scaleX(0.99); 
+    }
+    65% { 
+        transform: scaleY(0.38) scaleX(0.90); 
+    }
+    85% { 
+        transform: scaleY(0.48) scaleX(0.94); 
+    }
+    100% { 
+        transform: scaleY(0.45) scaleX(0.93); 
+    }
+}
+
+/* ==========================================================================
+    ─── KEYFRAMES DE SALIDA: EFECTO INVERSO AL QUITAR EL HOVER ─── 
+    ========================================================================= */
+
+/* Se ejecutan automáticamente al remover la clase ".suspicious".
+   Hacen el camino inverso: apertura rápida, expansión por inercia y asentamiento */
+
+@keyframes abrirCentral {
+    0% {
+        transform: scaleY(0.45) scaleX(0.93);
+    }
+    40% {
+        /* Se abren con fuerza rebasando ligeramente el límite natural por velocidad */
+        transform: scaleY(1.06) scaleX(1.01);
+    }
+    75% {
+        /* Amortiguación elástica */
+        transform: scaleY(0.97) scaleX(0.99);
+    }
+    100% {
+        /* Reposo perfecto */
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+@keyframes abrirPeriferico {
+    0% {
+        transform: scaleY(0.45) scaleX(0.93);
+    }
+    10% {
+        /* Retraso intencional para romper la simetría robótica */
+        transform: scaleY(0.45) scaleX(0.93);
+    }
+    50% {
+        transform: scaleY(1.05) scaleX(1.01);
+    }
+    80% {
+        transform: scaleY(0.98) scaleX(0.99);
+    }
+    100% {
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+/* ==========================================================================
+    ─── TEXTOS Y BOTONES ─── 
+    ========================================================================== */
+.modal-content h3 {
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin: 0; 
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.modal-buttons button {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 150px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#modal-yes:hover {
+    background-color: #000000;
+    color: #ffffff;
+    outline: 1px solid rgba(255, 255, 255, 0.4);
+}
