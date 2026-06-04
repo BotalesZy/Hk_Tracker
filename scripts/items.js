@@ -278,3 +278,42 @@ document.addEventListener('mouseout', (event) => {
     };
     document.addEventListener('DOMContentLoaded', () => setTimeout(parpadear, 3000));
 })();
+
+
+// 1. CERRAR EL MODAL DE CONFIRMACIÓN ("Are you sure?") AL TOCAR FUERA
+const confirmModal = document.getElementById('custom-confirm-modal');
+
+if (confirmModal) {
+    confirmModal.addEventListener('click', (event) => {
+        // Si el clic fue directamente en el fondo oscuro y no dentro de la caja de botones:
+        if (event.target === confirmModal) {
+            confirmModal.classList.remove('show'); // Esconde el modal
+        }
+    });
+}
+
+// 2. CERRAR CUALQUIER PANEL GLASS AL TOCAR FUERA DE ÉL
+document.addEventListener('click', (event) => {
+    // Lista de todos tus paneles
+    const paneles = [
+        document.getElementById('mask-panel'),
+        document.getElementById('vessel-panel'),
+        document.getElementById('godtuner-panel'),
+        document.getElementById('dreamnail-panel')
+    ];
+
+    // Buscamos cuál es el trigger o botón que abre paneles para no cerrarlo al interactuar
+    const esBotonAbrir = event.target.closest('#nail, #dreamNail, #godT, .interactive-item, .interactive-spell');
+    
+    // Si el usuario NO tocó un botón de apertura, verificamos si tocó fuera de un panel activo
+    if (!esBotonAbrir) {
+        paneles.forEach(panel => {
+            if (panel && !panel.classList.contains('hidden')) {
+                // Si el clic NO fue dentro del panel, lo cerramos poniéndole 'hidden'
+                if (!panel.contains(event.target)) {
+                    panel.classList.add('hidden');
+                }
+            }
+        });
+    }
+});
