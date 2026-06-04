@@ -1,6 +1,14 @@
 # Hk_Tracker
 
-An interactive completion tracker for Hollow Knight, built as a personal portfolio project. Track your progress toward the 112% completion mark with a stylized UI faithful to the game's aesthetic.
+
+A fan-made Hollow Knight completion tracker designed to help players keep track of their progress toward the 112% completion mark.
+
+This project was built as a personal portfolio piece focused on UI design, state management, animations, and interactive web development using Vanilla JavaScript.
+
+
+Live Demo
+https://botaleszy.github.io/Hk_Tracker/
+
 
 ---
 
