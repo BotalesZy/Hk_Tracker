@@ -15,7 +15,7 @@
     top: 0;
     left: 0;
     width: 100%;       /* Clavado al ancho exacto de la columna */
-    height: 50%;      /* Ajustado a la mitad superior exacta de la sección */
+    height: 40%;      /* Ajustado a la mitad superior exacta de la sección */
     
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(15, 12, 2, 0.85) 100%);
     backdrop-filter: blur(16px);
