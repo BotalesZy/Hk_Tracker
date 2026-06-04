@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="css/movileD.css" />
     <link rel="stylesheet" href="css/movile.css" />
-    <link rel="stylesheet" href="css/movileG.css">
     <link rel="stylesheet" href="css/movileMV.css">
-    
     <link rel="stylesheet" href="css/cssGen.css" />
-    
     <link rel="stylesheet" href="css/cleanB.css" />
     <link rel="stylesheet" href="css/glassPanels.css" />
     <link rel="stylesheet" href="css/glassPaneld.css" />
@@ -29,16 +25,16 @@
 <body>
 
     <div id="bloqueo-orientacion">
-    <div class="contenido-bloqueo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icono-giro">
-            <rect x="10" y="10" width="300" height="492" rx="45" fill="none" stroke="currentColor" stroke-width="14"/>
-            <rect x="24" y="24" width="272" height="464" rx="32" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3" stroke-dasharray="6,6"/>
-            <rect x="110" y="22" width="100" height="12" rx="6" fill="currentColor"/>
-            <rect x="110" y="476" width="100" height="5" rx="2.5" fill="currentColor" opacity="0.6"/>
-        </svg>
-        <p>Por favor, gira tu dispositivo en modo horizontal</p>
+        <div class="contenido-bloqueo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icono-giro">
+                <rect x="10" y="10" width="300" height="492" rx="45" fill="none" stroke="currentColor" stroke-width="14"/>
+                <rect x="24" y="24" width="272" height="464" rx="32" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3" stroke-dasharray="6,6"/>
+                <rect x="110" y="22" width="100" height="12" rx="6" fill="currentColor"/>
+                <rect x="110" y="476" width="100" height="5" rx="2.5" fill="currentColor" opacity="0.6"/>
+            </svg>
+            <p>Por favor, gira tu dispositivo en modo horizontal</p>
+        </div>
     </div>
-</div>
 
     <!-- ─── NAVBAR SUPERIOR ─── -->
     <nav class="nav-bar">
@@ -168,7 +164,9 @@
                                 </div>
                                 <div class="sub-box desc-bottom">
                                     <p id="completion-text">Completion <span id="completion-value">0</span>%</p>
-                                    <p id="text-clear">Clear Tracker</p>
+                                    <div class="container-clear-ajustes">
+                                        <p id="text-clear">Clear Tracker</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +190,7 @@
         </aside>
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL CONFIRMATION -->
     <div id="custom-confirm-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-body">
@@ -207,6 +205,7 @@
     </div>
 
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="scripts/carrusel.js"></script>
     <script src="scripts/porcentaje.js"></script>
@@ -217,5 +216,156 @@
     <script src="scripts/panelMask.js"></script>
     <script src="scripts/panelVessels.js"></script>
     <script src="scripts/items.js"></script>
+    <script>
+
+
+// ======================================
+// SETTINGS MODAL
+// ======================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ------------------------------
+    // ELEMENTOS
+    // ------------------------------
+
+    const settingsBtn =
+        document.getElementById("btn-ajustes-hud");
+
+    const settingsModal =
+        document.getElementById("settings-modal");
+
+    const closeSettings =
+        document.getElementById("close-settings");
+
+    const musicToggle =
+        document.getElementById("toggle-music");
+
+    const sfxToggle =
+        document.getElementById("toggle-sfx");
+
+    // ------------------------------
+    // CONFIG POR DEFECTO
+    // ------------------------------
+
+    window.audioSettings = {
+        music: true,
+        sfx: true
+    };
+
+    // ------------------------------
+    // CARGAR LOCAL STORAGE
+    // ------------------------------
+
+    const savedMusic =
+        localStorage.getItem("musicEnabled");
+
+    const savedSfx =
+        localStorage.getItem("sfxEnabled");
+
+    if (savedMusic !== null) {
+
+        window.audioSettings.music =
+            savedMusic === "true";
+
+        musicToggle.checked =
+            window.audioSettings.music;
+    }
+    else {
+
+        musicToggle.checked = true;
+    }
+
+    if (savedSfx !== null) {
+
+        window.audioSettings.sfx =
+            savedSfx === "true";
+
+        sfxToggle.checked =
+            window.audioSettings.sfx;
+    }
+    else {
+
+        sfxToggle.checked = true;
+    }
+
+    // ------------------------------
+    // ABRIR MODAL
+    // ------------------------------
+
+    settingsBtn.addEventListener("click", () => {
+
+        settingsModal.classList.add("active");
+
+    });
+
+    // ------------------------------
+    // CERRAR MODAL
+    // ------------------------------
+
+    closeSettings.addEventListener("click", () => {
+
+        settingsModal.classList.remove("active");
+
+    });
+
+    // ------------------------------
+    // CLICK FUERA DEL MODAL
+    // ------------------------------
+
+    settingsModal.addEventListener("click", (e) => {
+
+        if (e.target === settingsModal) {
+
+            settingsModal.classList.remove("active");
+
+        }
+
+    });
+
+    // ------------------------------
+    // MUSIC TOGGLE
+    // ------------------------------
+
+    musicToggle.addEventListener("change", () => {
+
+        window.audioSettings.music =
+            musicToggle.checked;
+
+        localStorage.setItem(
+            "musicEnabled",
+            musicToggle.checked
+        );
+
+        console.log(
+            "Music:",
+            window.audioSettings.music
+        );
+
+    });
+
+    // ------------------------------
+    // SFX TOGGLE
+    // ------------------------------
+
+    sfxToggle.addEventListener("change", () => {
+
+        window.audioSettings.sfx =
+            sfxToggle.checked;
+
+        localStorage.setItem(
+            "sfxEnabled",
+            sfxToggle.checked
+        );
+
+        console.log(
+            "SFX:",
+            window.audioSettings.sfx
+        );
+
+    });
+
+});
+    </script>
 </body>
 </html>
