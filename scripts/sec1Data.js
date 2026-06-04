@@ -53,13 +53,13 @@ const SEC1_PANELS_DATA = {
         items: [
             { id: "vf_sly1", type: "text", text: "Bought from Sly in Dirtmouth for [ICON:GEO]550", pct: "0", extraClass: "vessel-fragment-task" },
             { id: "vf_sly2", type: "text", text: "Bought from Sly in Dirtmouth for [ICON:GEO]900", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_greenpath", type: "text", text: "Greenpath (Stag Nest road)", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_crossroad", type: "text", text: "Forgotten Crossroads elevator", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_seer", type: "text", text: "The Seer [ICON:ESSE]700", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_bazaar", type: "text", text: "City of Tears (Bazaar area)", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_deepnest", type: "text", text: "Deepnest (Garpedes nest)", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_basin", type: "text", text: "Ancient Basin (Fountain)", pct: "0", extraClass: "vessel-fragment-task" },
-            { id: "vf_station", type: "text", text: "King's Station", pct: "0", extraClass: "vessel-fragment-task" }
+            { id: "vf_greenpath", type: "text", text: "Found in Greenpath near the inaccessible Queen's Gardens entrance", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_crossroad", type: "text", text: "Left of the lift in Forgotten Crossroads", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_seer", type: "text", text: "Found above King's Station near a lift", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_bazaar", type: "text", text: "Found in Deepnest above the working tram", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_deepnest", type: "text", text: "Found at the end of Stag Nest", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_basin", type: "text", text: "The Seer [ICON:ESSE]700", pct: "0", extraClass: "vessel-fragment-task" },
+            { id: "vf_station", type: "text", text: "Ancient Basin (Fountain) [ICON:GEO]3000", pct: "0", extraClass: "vessel-fragment-task" }
         ]
     }
 };
